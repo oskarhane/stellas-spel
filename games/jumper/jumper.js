@@ -5,6 +5,7 @@ class JumperGame {
         this.startBtn = document.getElementById('start-btn');
         this.currentScoreElement = document.getElementById('currentScore');
         this.highScoreElement = document.getElementById('highScore');
+        this.gameArea = document.getElementById('game-area');
         
         this.isJumping = false;
         this.isGameOver = false;
@@ -21,15 +22,34 @@ class JumperGame {
 
     init() {
         this.highScoreElement.textContent = this.highScore;
-        this.startBtn.addEventListener('click', () => this.startGame());
+        this.startBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.startGame();
+        });
+        
+        // Keyboard controls
         document.addEventListener('keydown', (e) => {
-            if (e.code === 'Space') {
+            if ((e.code === 'Space' || e.code === 'ArrowUp') && !this.isGameOver) {
                 e.preventDefault(); // Prevent page scrolling
                 this.jump();
             }
         });
-        document.addEventListener('touchstart', () => this.jump());
-        document.addEventListener('click', () => this.jump());
+
+        // Touch controls for game area only
+        this.gameArea.addEventListener('touchstart', (e) => {
+            if (!this.isGameOver) {
+                e.preventDefault();
+                this.jump();
+            }
+        }, { passive: false });
+
+        // Regular click/tap for game area only
+        this.gameArea.addEventListener('click', (e) => {
+            if (!this.isGameOver) {
+                e.preventDefault();
+                this.jump();
+            }
+        });
     }
 
     createObstacle() {
