@@ -1,0 +1,12 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "echo 'Static site, no build needed'"
+
+[deploy]
+startCommand = "nginx -g 'daemon off;'"
+restartPolicyType = "ON_FAILURE"
+healthcheckPath = "/"
+healthcheckTimeout = 300
+
+[nginx]
+staticDir = "/"
