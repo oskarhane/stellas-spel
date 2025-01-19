@@ -1,0 +1,223 @@
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --background-color: #f0f2f5;
+    --text-color: #333;
+    --card-background: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.splash-screen {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.splash-screen h1 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.game-card {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    touch-action: manipulation;
+}
+
+.game-card:hover, .game-card:active {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.game-icon {
+    font-size: clamp(3rem, 8vw, 4rem);
+    margin-bottom: 1rem;
+}
+
+.game-card h2 {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.game-card p {
+    color: #666;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+}
+
+/* Game-specific styles */
+.screen {
+    display: none;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    margin: 10px 5px;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 150px;
+    touch-action: manipulation;
+}
+
+.primary-btn:hover, .primary-btn:active {
+    transform: scale(1.05);
+    background-color: #45a049;
+}
+
+.question-container {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.question {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.options-container {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.option {
+    background: #e9ecef;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.option:hover {
+    background: #dee2e6;
+}
+
+.option.correct {
+    background: #28a745;
+    color: white;
+}
+
+.option.wrong {
+    background: #dc3545;
+    color: white;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress {
+    width: 0%;
+    height: 100%;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.result-details {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    font-size: 1.2rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .game-grid {
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+    
+    .game-card {
+        padding: 1rem;
+    }
+    
+    .primary-btn {
+        padding: 12px 24px;
+        min-width: 120px;
+    }
+}
+
+/* Prevent text selection during gameplay */
+.game-area, .board, .question-container {
+    user-select: none;
+    -webkit-user-select: none;
+}

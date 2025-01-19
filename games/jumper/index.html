@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoppspelet</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="jumper.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-container">
+            <h1>Hoppspelet 🦖</h1>
+            <div class="score-container">
+                <div class="high-score">Högsta poäng: <span id="highScore">0</span></div>
+                <div class="current-score">Poäng: <span id="currentScore">0</span></div>
+            </div>
+            <div id="game-area">
+                <div id="character">🦖</div>
+                <div id="obstacles"></div>
+            </div>
+            <div class="controls">
+                <p>Tryck på mellanslag eller klicka för att hoppa över hinder! 🌵💩</p>
+                <button id="start-btn" class="primary-btn">Starta spelet</button>
+                <a href="../../index.html" class="primary-btn">Tillbaka till menyn</a>
+            </div>
+        </div>
+    </div>
+    <script src="jumper.js"></script>
+</body>
+</html>

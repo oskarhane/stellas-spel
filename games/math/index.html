@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mattespelet</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="welcome-screen" class="screen active">
+            <h1>Mattespelet! 🚀</h1>
+            <p>Är du redo att bli en Mattemästare?</p>
+            <button id="start-btn" class="primary-btn">Starta Äventyret!</button>
+            <a href="../../index.html" class="primary-btn">Tillbaka till menyn</a>
+        </div>
+
+        <div id="game-screen" class="screen">
+            <div class="progress-bar">
+                <div id="progress" class="progress"></div>
+            </div>
+            <div class="score">Poäng: <span id="score">0</span></div>
+            <div class="question-container">
+                <div id="question" class="question">Laddar...</div>
+                <div class="options-container" id="options">
+                </div>
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen">
+            <h2>Bra jobbat! 🎉</h2>
+            <div class="result-details">
+                <p>Din poäng: <span id="final-score">0</span></p>
+                <p>Rätta svar: <span id="correct-answers">0</span></p>
+            </div>
+            <button id="play-again-btn" class="primary-btn">Spela Igen</button>
+            <a href="../../index.html" class="primary-btn">Tillbaka till menyn</a>
+        </div>
+    </div>
+    <script src="math.js"></script>
+</body>
+</html>
